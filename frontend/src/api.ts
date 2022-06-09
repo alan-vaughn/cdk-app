@@ -9,14 +9,14 @@ export const getToken = async () => {
 export const addBalance = async (amount: Number, note: string) => {
   const token = await getToken();
   const res = await fetch(`${apiEndpoint}/balances`, {
-    method: 'POST',
+    method: "POST",
     headers: { Authorization: token },
     body: JSON.stringify({
       amount,
       note,
-    })
+    }),
   });
-}
+};
 
 export const getBalances = async () => {
   const token = await getToken();
@@ -24,5 +24,5 @@ export const getBalances = async () => {
     headers: { Authorization: token },
   });
 
-  return res.json()
-}
+  return res.json();
+};

@@ -1,7 +1,9 @@
-import { StackProps, RemovalPolicy, Duration, CfnOutput } from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-import { UserPool, UserPoolClient } from 'aws-cdk-lib/aws-cognito'
-import EnvironmentAwareStack, { EnvironmentAwareStackProps } from './environment-aware-stack';
+import { StackProps, RemovalPolicy, Duration, CfnOutput } from "aws-cdk-lib";
+import { Construct } from "constructs";
+import { UserPool, UserPoolClient } from "aws-cdk-lib/aws-cognito";
+import EnvironmentAwareStack, {
+  EnvironmentAwareStackProps,
+} from "./environment-aware-stack";
 
 export default class AuthorizationStack extends EnvironmentAwareStack {
   public readonly userPool: UserPool;
@@ -13,8 +15,8 @@ export default class AuthorizationStack extends EnvironmentAwareStack {
     const userPool = new UserPool(this, `${this.deployEnvironment}-userPool`, {
       removalPolicy: RemovalPolicy.DESTROY,
       signInAliases: {
-        email: true
-      }
+        email: true,
+      },
     });
 
     const client = userPool.addClient(`${this.deployEnvironment}-webClient`, {
