@@ -11,20 +11,26 @@ import {
 } from "@aws-amplify/ui-react";
 import { BalancesPage } from "./BalancesPage";
 
+// NOTE: Right now these have to be manually toggled
+
 // StagingAuthorizationStack.CognitoUserPoolId = us-east-1_2kTItzclp
 // StagingAuthorizationStack.CognitoUserPoolWebClientId = 4cpsqk94f2io9vu9oq8aks4sae
 // Staging API Endpoint: https://yhy1n74j62.execute-api.us-east-1.amazonaws.com/prod/
 
+// ProdAuthorizationStack.CognitoUserPoolId = us-east-1_2xc9unjFE
+// ProdAuthorizationStack.CognitoUserPoolWebClientId = 3e52fuh1oj40523mv6vljf0fjt
+// ProdCdkAppStack.prodrestApiEndpointAAD788BA = https://p921vbrclg.execute-api.us-east-1.amazonaws.com/prod/
+
 Amplify.configure({
   Auth: {
     region: "ap-northeast-1",
-    userPoolId: "us-east-1_2kTItzclp", // Please change this value.
-    userPoolWebClientId: "4cpsqk94f2io9vu9oq8aks4sae", // Please change this value.
+    userPoolId: "us-east-1_2xc9unjFE",
+    userPoolWebClientId: "3e52fuh1oj40523mv6vljf0fjt",
   },
 });
 
 export const apiEndpoint =
-  "https://g25mo4z2c4.execute-api.us-east-1.amazonaws.com/prod"; // Please change this value. (Don't include '/api')
+  "https://p921vbrclg.execute-api.us-east-1.amazonaws.com/prod";
 
 const App: React.FC = () => {
   const [authState, setAuthState] = useState<AuthState>();
