@@ -8,13 +8,25 @@ import FrontendStack from '../lib/frontend-stack';
 const app = new cdk.App();
 
 // staging environment stacks
-const authStack = new AuthorizationStack(app, 'StagingAuthorizationStack', {
+const stagingAuthStack = new AuthorizationStack(app, 'StagingAuthorizationStack', {
   deployEnviroment: 'staging'
 })
 new CdkAppStack(app, 'StagingCdkAppStack', {
-  authorizationStack: authStack,
+  authorizationStack: stagingAuthStack,
   deployEnviroment: 'staging'
 });
 new FrontendStack(app, 'StagingFrontendStack', {
   deployEnviroment: 'staging'
+})
+
+// production enviroment stacks
+const prodAuthStack = new AuthorizationStack(app, 'ProdAuthorizationStack', {
+  deployEnviroment: 'prod'
+})
+new CdkAppStack(app, 'ProdCdkAppStack', {
+  authorizationStack: prodAuthStack,
+  deployEnviroment: 'prod'
+});
+new FrontendStack(app, 'ProdFrontendStack', {
+  deployEnviroment: 'prod'
 })
