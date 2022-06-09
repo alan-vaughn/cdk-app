@@ -1,0 +1,16 @@
+{
+  "name": "api-endpoints",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/node": "*",
+    "@types/uuid": "*"
+  },
+  "dependencies": {
+    "aws-sdk": "*",
+    "jsonwebtoken": "*",
+    "uuid": "*"
+  }
+}
