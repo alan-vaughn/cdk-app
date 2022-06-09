@@ -9,7 +9,7 @@ import {
   AmplifyAuthenticator,
   AmplifySignIn,
 } from "@aws-amplify/ui-react";
-import { BalancesPage } from './BalancesPage';
+import { BalancesPage } from "./BalancesPage";
 
 // StagingAuthorizationStack.CognitoUserPoolId = us-east-1_2kTItzclp
 // StagingAuthorizationStack.CognitoUserPoolWebClientId = 4cpsqk94f2io9vu9oq8aks4sae
@@ -23,7 +23,8 @@ Amplify.configure({
   },
 });
 
-export const apiEndpoint = "https://g25mo4z2c4.execute-api.us-east-1.amazonaws.com/prod"; // Please change this value. (Don't include '/api')
+export const apiEndpoint =
+  "https://g25mo4z2c4.execute-api.us-east-1.amazonaws.com/prod"; // Please change this value. (Don't include '/api')
 
 const App: React.FC = () => {
   const [authState, setAuthState] = useState<AuthState>();

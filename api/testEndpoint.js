@@ -1,14 +1,14 @@
-import {decode as jwtDecode } from 'jsonwebtoken'
+import { decode as jwtDecode } from "jsonwebtoken";
 
 export const handler = async (event) => {
-  const userId = jwtDecode(event.headers['Authorization'].split(' ')[1])
+  const userId = jwtDecode(event.headers["Authorization"].split(" ")[1]);
 
-  return { 
+  return {
     statusCode: 201,
     headers: {
-      "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
-      "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS
+      "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+      "Access-Control-Allow-Credentials": true, // Required for cookies, authorization headers with HTTPS
     },
-    body: JSON.stringify(userId)
+    body: JSON.stringify(userId),
   };
 };

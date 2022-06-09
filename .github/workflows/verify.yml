@@ -1,0 +1,26 @@
+name: Verify Build
+
+# build on PRs to the main branch and pushes to the main
+# branch (eg right after a PR is merged)
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install javascript
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: npm
+      - name: Install Javascript Dependencies
+        run: npm install      
+      - name: Run Prettier
+        run: npm run prettier-check
